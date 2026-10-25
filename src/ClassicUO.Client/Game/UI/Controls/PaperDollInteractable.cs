@@ -49,6 +49,12 @@ namespace ClassicUO.Game.UI.Controls
         private static readonly Layer[] _layerOrder =
         {
             Layer.Cloak,
+            Layer.TattooRArm,
+            Layer.TattooLArm,
+            Layer.TattooRLeg,
+            Layer.TattooLLeg,
+            Layer.TattooTorso,
+            Layer.TattooHead,
             Layer.Shirt,
             Layer.Pants,
             Layer.Shoes,
@@ -63,6 +69,7 @@ namespace ClassicUO.Game.UI.Controls
             Layer.Skirt,
             Layer.Robe,
             Layer.Waist,
+            Layer.Belt2,
             Layer.Necklace,
             Layer.Hair,
             Layer.Beard,
@@ -75,6 +82,12 @@ namespace ClassicUO.Game.UI.Controls
 
         private static readonly Layer[] _layerOrder_quiver_fix =
         {
+            Layer.TattooRArm,
+            Layer.TattooLArm,
+            Layer.TattooRLeg,
+            Layer.TattooLLeg,
+            Layer.TattooTorso,
+            Layer.TattooHead,
             Layer.Shirt,
             Layer.Pants,
             Layer.Shoes,
@@ -90,6 +103,7 @@ namespace ClassicUO.Game.UI.Controls
             Layer.Robe,
             Layer.Cloak,
             Layer.Waist,
+            Layer.Belt2,
             Layer.Necklace,
             Layer.Hair,
             Layer.Beard,
