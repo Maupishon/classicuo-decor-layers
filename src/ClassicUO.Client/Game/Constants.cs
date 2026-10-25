@@ -57,7 +57,7 @@ namespace ClassicUO.Game
         public const int MIN_TERRAIN_SHADOWS_LEVEL = 5;
         public const int MAX_TERRAIN_SHADOWS_LEVEL = 25;
 
-        public const int USED_LAYER_COUNT = 23;
+        public const int USED_LAYER_COUNT = 30;
 
         public const int CLEAR_TEXTURES_DELAY = 3000;
         public const int MAX_ANIMATIONS_OBJECT_REMOVED_BY_GARBAGE_COLLECTOR = 20;
@@ -138,7 +138,8 @@ namespace ClassicUO.Game
             true, true, false, true, true, true, false, false,
             true, true, true, true,
             false, // backpack
-            true, true, true, false, false, false, false, false
+            true, true, true, false, false, false, false, false,
+            true, true, true, true, true, true, true // Nelderim decor layers 0x1E-0x24
         };
     }
 }

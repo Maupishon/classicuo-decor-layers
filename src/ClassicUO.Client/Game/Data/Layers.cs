@@ -63,6 +63,15 @@ namespace ClassicUO.Game.Data
         ShopBuyRestock = 0x1A,
         ShopBuy = 0x1B,
         ShopSell = 0x1C,
-        Bank = 0x1D
+        Bank = 0x1D,
+
+        // Nelderim decor layers
+        TattooRArm = 0x1E,
+        TattooLArm = 0x1F,
+        TattooRLeg = 0x20,
+        TattooLLeg = 0x21,
+        TattooTorso = 0x22,
+        TattooHead = 0x23,
+        Belt2 = 0x24
     }
 }
