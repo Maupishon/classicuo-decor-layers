@@ -65,13 +65,13 @@ namespace ClassicUO.Game.Data
         ShopSell = 0x1C,
         Bank = 0x1D,
 
-        // Nelderim decor layers
-        TattooRArm = 0x1E,
-        TattooLArm = 0x1F,
-        TattooRLeg = 0x20,
-        TattooLLeg = 0x21,
-        TattooTorso = 0x22,
-        TattooHead = 0x23,
-        Belt2 = 0x24
+        // Nelderim decor layers (0x1E/0x1F left free: ServUO Reserved_x1E, SecureTrade)
+        TattooRArm = 0x20,
+        TattooLArm = 0x21,
+        TattooRLeg = 0x22,
+        TattooLLeg = 0x23,
+        TattooTorso = 0x24,
+        TattooHead = 0x25,
+        Belt2 = 0x26
     }
 }
