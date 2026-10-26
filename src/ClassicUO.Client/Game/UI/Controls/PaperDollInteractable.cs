@@ -75,6 +75,7 @@ namespace ClassicUO.Game.UI.Controls
             Layer.Beard,
             Layer.Earrings,
             Layer.Helmet,
+            Layer.Head2,
             Layer.OneHanded,
             Layer.TwoHanded,
             Layer.Talisman
@@ -109,6 +110,7 @@ namespace ClassicUO.Game.UI.Controls
             Layer.Beard,
             Layer.Earrings,
             Layer.Helmet,
+            Layer.Head2,
             Layer.OneHanded,
             Layer.TwoHanded,
             Layer.Talisman

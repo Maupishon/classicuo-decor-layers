@@ -41,7 +41,7 @@ namespace ClassicUO.Game.Data
                 Layer.TattooRArm, Layer.TattooLArm, Layer.TattooRLeg, Layer.TattooLLeg, Layer.TattooTorso, Layer.TattooHead,
                 Layer.Shirt, Layer.Pants, Layer.Shoes, Layer.Legs, Layer.Torso, Layer.Ring, Layer.Talisman,
                 Layer.Bracelet, Layer.Face, Layer.Arms, Layer.Gloves, Layer.Skirt, Layer.Tunic, Layer.Robe,
-                Layer.Necklace, Layer.Hair, Layer.Waist, Layer.Belt2, Layer.Beard, Layer.Earrings, Layer.OneHanded, Layer.Helmet,
+                Layer.Necklace, Layer.Hair, Layer.Waist, Layer.Belt2, Layer.Beard, Layer.Earrings, Layer.OneHanded, Layer.Helmet, Layer.Head2,
                 Layer.TwoHanded, Layer.Cloak
             },
             {
@@ -50,7 +50,7 @@ namespace ClassicUO.Game.Data
                 Layer.Shirt, Layer.Pants, Layer.Shoes, Layer.Legs, Layer.Torso, Layer.Ring, Layer.Talisman,
                 Layer.Bracelet, Layer.Face, Layer.Arms, Layer.Gloves, Layer.Skirt, Layer.Tunic, Layer.Robe,
                 Layer.Necklace, Layer.Hair, Layer.Waist, Layer.Belt2, Layer.Beard, Layer.Earrings, Layer.OneHanded, Layer.Cloak,
-                Layer.Helmet, Layer.TwoHanded
+                Layer.Helmet, Layer.Head2, Layer.TwoHanded
             },
             {
                 // 2
@@ -58,14 +58,14 @@ namespace ClassicUO.Game.Data
                 Layer.Shirt, Layer.Pants, Layer.Shoes, Layer.Legs, Layer.Torso, Layer.Ring, Layer.Talisman,
                 Layer.Bracelet, Layer.Face, Layer.Arms, Layer.Gloves, Layer.Skirt, Layer.Tunic, Layer.Robe,
                 Layer.Necklace, Layer.Hair, Layer.Waist, Layer.Belt2, Layer.Beard, Layer.Earrings, Layer.OneHanded, Layer.Cloak,
-                Layer.Helmet, Layer.TwoHanded
+                Layer.Helmet, Layer.Head2, Layer.TwoHanded
             },
             {
                 // 3
                 Layer.Cloak, Layer.TattooRArm, Layer.TattooLArm, Layer.TattooRLeg, Layer.TattooLLeg, Layer.TattooTorso, Layer.TattooHead,
                 Layer.Shirt, Layer.Pants, Layer.Shoes, Layer.Legs, Layer.Torso, Layer.Ring, Layer.Talisman,
                 Layer.Bracelet, Layer.Face, Layer.Arms, Layer.Gloves, Layer.Skirt, Layer.Tunic, Layer.Robe, Layer.Waist, Layer.Belt2,
-                Layer.Necklace, Layer.Hair, Layer.Beard, Layer.Earrings, Layer.Helmet, Layer.OneHanded, Layer.TwoHanded
+                Layer.Necklace, Layer.Hair, Layer.Beard, Layer.Earrings, Layer.Helmet, Layer.Head2, Layer.OneHanded, Layer.TwoHanded
             },
             {
                 // 4
@@ -73,7 +73,7 @@ namespace ClassicUO.Game.Data
                 Layer.Shirt, Layer.Pants, Layer.Shoes, Layer.Legs, Layer.Torso, Layer.Ring, Layer.Talisman,
                 Layer.Bracelet, Layer.Face, Layer.Arms, Layer.Gloves, Layer.Skirt, Layer.Tunic, Layer.Robe,
                 Layer.Necklace, Layer.Hair, Layer.Waist, Layer.Belt2, Layer.Beard, Layer.Earrings, Layer.OneHanded, Layer.Cloak,
-                Layer.Helmet, Layer.TwoHanded
+                Layer.Helmet, Layer.Head2, Layer.TwoHanded
             },
             {
                 // 5
@@ -81,7 +81,7 @@ namespace ClassicUO.Game.Data
                 Layer.Shirt, Layer.Pants, Layer.Shoes, Layer.Legs, Layer.Torso, Layer.Ring, Layer.Talisman,
                 Layer.Bracelet, Layer.Face, Layer.Arms, Layer.Gloves, Layer.Skirt, Layer.Tunic, Layer.Robe,
                 Layer.Necklace, Layer.Hair, Layer.Waist, Layer.Belt2, Layer.Beard, Layer.Earrings, Layer.OneHanded, Layer.Cloak,
-                Layer.Helmet, Layer.TwoHanded
+                Layer.Helmet, Layer.Head2, Layer.TwoHanded
             },
             {
                 // 6
@@ -89,7 +89,7 @@ namespace ClassicUO.Game.Data
                 Layer.Shirt, Layer.Pants, Layer.Shoes, Layer.Legs, Layer.Torso, Layer.Ring, Layer.Talisman,
                 Layer.Bracelet, Layer.Face, Layer.Arms, Layer.Gloves, Layer.Skirt, Layer.Tunic, Layer.Robe,
                 Layer.Necklace, Layer.Hair, Layer.Waist, Layer.Belt2, Layer.Beard, Layer.Earrings, Layer.OneHanded, Layer.Cloak,
-                Layer.Helmet, Layer.TwoHanded
+                Layer.Helmet, Layer.Head2, Layer.TwoHanded
             },
             {
                 // 7
@@ -97,7 +97,7 @@ namespace ClassicUO.Game.Data
                 Layer.Shirt, Layer.Pants, Layer.Shoes, Layer.Legs, Layer.Torso, Layer.Ring, Layer.Talisman,
                 Layer.Bracelet, Layer.Face, Layer.Arms, Layer.Gloves, Layer.Skirt, Layer.Tunic, Layer.Robe,
                 Layer.Necklace, Layer.Hair, Layer.Waist, Layer.Belt2, Layer.Beard, Layer.Earrings, Layer.OneHanded, Layer.Cloak,
-                Layer.Helmet, Layer.TwoHanded
+                Layer.Helmet, Layer.Head2, Layer.TwoHanded
             }
         };
     }

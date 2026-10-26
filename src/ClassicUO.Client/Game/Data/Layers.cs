@@ -72,6 +72,7 @@ namespace ClassicUO.Game.Data
         TattooLLeg = 0x23,
         TattooTorso = 0x24,
         TattooHead = 0x25,
-        Belt2 = 0x26
+        Belt2 = 0x26,
+        Head2 = 0x27
     }
 }

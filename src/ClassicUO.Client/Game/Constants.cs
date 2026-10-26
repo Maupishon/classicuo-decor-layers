@@ -57,7 +57,7 @@ namespace ClassicUO.Game
         public const int MIN_TERRAIN_SHADOWS_LEVEL = 5;
         public const int MAX_TERRAIN_SHADOWS_LEVEL = 25;
 
-        public const int USED_LAYER_COUNT = 30;
+        public const int USED_LAYER_COUNT = 31;
 
         public const int CLEAR_TEXTURES_DELAY = 3000;
         public const int MAX_ANIMATIONS_OBJECT_REMOVED_BY_GARBAGE_COLLECTOR = 20;
@@ -140,7 +140,7 @@ namespace ClassicUO.Game
             false, // backpack
             true, true, true, false, false, false, false, false,
             false, false, // 0x1E reserved, 0x1F secure trade
-            false, false, false, false, false, false, false // Nelderim decor layers 0x20-0x26 (not lootable from corpse)
+            false, false, false, false, false, false, false, false // Nelderim decor layers 0x20-0x27 (not lootable from corpse)
         };
     }
 }
