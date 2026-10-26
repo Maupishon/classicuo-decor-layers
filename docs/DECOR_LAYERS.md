@@ -11,6 +11,7 @@
 | 0x24 | TattooTorso | przed Shirt |
 | 0x25 | TattooHead | przed Shirt |
 | 0x26 | Belt2 ("pas2") | zaraz po Waist |
+| 0x27 | Head2 (kaptur, nad Helmet) | zaraz po Helmet |
 
 0x1E i 0x1F pominięte celowo: w ServUO 0x1E to `Reserved_x1E`, a 0x1F to `SecureTrade`
 (`SecureTradeContainer` ma `Layer = Layer.SecureTrade`, `Server/Items/SecureTradeContainer.cs:17`).
@@ -30,6 +31,7 @@ Folder: `D:\UO\UO\NELDERIM\ServUO` (z `CLAUDE.md` serwera; ścieżka `D:\UO\Serv
    TattooTorso = 0x24,
    TattooHead = 0x25,
    Belt2 = 0x26,
+   Head2 = 0x27,
    ```
    W komentowanym bloku usunąć `Reserved_x20..x26`, żeby nie dublować (w komentarzu nie przeszkadzają, ale mylą).
 2. Pakiety: nic. `Packets.cs` (~3755-3775) wysyła `(byte)item.Layer` i dedupuje po `m_DupedLayers[256]`, więc 0x20-0x26 przejdą.
