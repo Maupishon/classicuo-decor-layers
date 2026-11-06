@@ -1,3 +1,5 @@
+> **Fork z dodatkowymi layerami dekoracyjnymi** (0x20-0x27: tatuaże, `Belt2`, `Head2`), baza ClassicUO `b13d3fe82` (1.x). Opis, numeracja, kolejność rysowania, zmiana po stronie ServUO i merge: [docs/DECOR_LAYERS.md](docs/DECOR_LAYERS.md). Gałąź z naszymi zmianami: `decor-layers`. Niesprawdzone w grze.
+
 <p align="center">
     <img src="https://i.imgur.com/CgpwyIQ.png" width="190" height="200" >
 </p>

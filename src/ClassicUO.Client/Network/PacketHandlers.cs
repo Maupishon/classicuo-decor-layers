@@ -1864,7 +1864,7 @@ namespace ClassicUO.Network
             {
                 //item.Clear();
             }
-            else if (SerialHelper.IsValid(item.Container) && item.Layer < Layer.Mount)
+            else if (SerialHelper.IsValid(item.Container) && (item.Layer < Layer.Mount || item.Layer >= Layer.TattooRArm))
             {
                 UIManager.GetGump<PaperDollGump>(item.Container)?.RequestUpdateContents();
             }
