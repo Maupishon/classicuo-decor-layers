@@ -1,4 +1,4 @@
-# Dekoracyjne layery (fork ClassicUO b13d3fe82, gałąź `feature/decor-layers`)
+# Dekoracyjne layery (fork ClassicUO, baza `b13d3fe82`, gałąź `decor-layers`)
 
 ## Numeracja (bajt layera w tiledata i w pakietach)
 
@@ -17,9 +17,7 @@
 (`SecureTradeContainer` ma `Layer = Layer.SecureTrade`, `Server/Items/SecureTradeContainer.cs:17`).
 W świecie tatuaże w wierszu kierunku 3 stoją po Cloak, w pozostałych na początku listy.
 
-## E. ServUO: minimalna zmiana (nic nie zmieniono na serwerze; to opis)
-
-Folder: `D:\UO\UO\NELDERIM\ServUO` (z `CLAUDE.md` serwera; ścieżka `D:\UO\ServUO-master\ServUO-master` z zadania nie istnieje).
+## Serwer ServUO: minimalna zmiana (opis; w tym repo nie ma kodu serwera)
 
 1. `Server/Item.cs`, `enum Layer : byte` (linie ~183-200): po `SecureTrade = 0x1F,` jest blok `/* Reserved_x20 ... */`
    (zakomentowany). Dodać przed nim:
@@ -37,7 +35,7 @@ Folder: `D:\UO\UO\NELDERIM\ServUO` (z `CLAUDE.md` serwera; ścieżka `D:\UO\Serv
 2. Pakiety: nic. `Packets.cs` (~3755-3775) wysyła `(byte)item.Layer` i dedupuje po `m_DupedLayers[256]`, więc 0x20-0x26 przejdą.
 3. Zapis/odczyt: nic. `Item.Serialize` zapisuje layer jako `byte` (`m_Layer = (Layer)reader.ReadByte()`, `Item.cs:3462/3675/3814`).
 4. Zakładanie: `Item.CanEquip` (`Item.cs:1774`) wymaga `Layer != Invalid` i pustego slotu. `EquipReq` (0x13) nie sprawdza zakresu layera.
-5. Do sprawdzenia przed wdrożeniem (nie czytałem): skrypty z `Layer.Invalid + n` / pętlami po `Layer` (np. `Scripts/Nelderim/.../LevelItemManager.cs:121` rzutuje `(Layer)i`), `Possess.cs`, `Mannequin.cs`. `BulletinBoards.cs:378` używa `<= Layer.Mount`, więc nowych layerów nie obejmie.
+5. Do sprawdzenia przed wdrożeniem (nie sprawdzone): skrypty z pętlami po `Layer` lub rzutowaniem `(Layer)i` (np. `LevelItemManager`, `Possess`, `Mannequin` w skryptach Nelderim). `BulletinBoards` używa `<= Layer.Mount`, więc nowych layerów nie obejmie.
 
 ### Wzorzec itemu: tatuaż prawej ręki
 `Scripts/Nelderim/Items/Decor/TattooRArm.cs` (propozycja ścieżki; wzór stylu: `DaggerBelt.cs`):
@@ -78,9 +76,9 @@ namespace Server.Items
 ```
 Czysty decor: brak `BaseClothing`/`BaseArmor`, więc zero wpływu na AR i statystyki.
 
-## F. Przykład end-to-end: jeden testowy tatuaż
+## Przykład end-to-end: jeden testowy tatuaż
 
-Użyj KOPII klienta (nie `C:\Nelderim\UO_70950\UO_70950`). Komendy pipeline z `CLAUDE.md` pipeline'u; ścieżki podmień.
+Użyj KOPII klienta, nie działającego. Komendy pipeline'u Nelderim (`nelderim.py ...`) z jego dokumentacji; ścieżki podmień.
 
 1. Wolne ID itemu i animacji: `python nelderim.py search --client <KOPIA> --item "<nazwa>"`; wolne body HUMAN/EQUIPMENT jest też w `FREE_SLOTS.md` klienta.
 2. Animacja: narysuj tatuaż jako ubranie (PNG RGBA) i zbuduj `.vd` 35 akcji x 5 kierunków dla ciała 400 jak zwykłe ubranie (`build_item.py` / `atlas_to_vd.py`, `vdtool info` = typ 2, 35x5). Wstrzyknięcie do anim5: `nelderim.py inject` / `wire` (dry-run, potem `--apply`).
@@ -89,7 +87,50 @@ Użyj KOPII klienta (nie `C:\Nelderim\UO_70950\UO_70950`). Komendy pipeline z `C
 5. Tiledata: dla ItemID ustaw `layer = 0x20`, `animId = <body>`, flagę Wearable. NIEZWERYFIKOWANE: czy `nelderim_patch` potrafi ustawić pole layer. Jeśli nie, UOFiddler (Items, pole Layer). Klient wysyła przy zakładaniu layer z tiledata (`GameActions.cs:559`), więc tiledata musi mieć 0x20.
 6. Equipconv.def (jeśli potrzebne): `400 <ItemID-animId> <conv> <gump> <hue>`.
 7. ServUO: enum Layer + klasa `TattooRArm` z `ItemID` z kroku 1; restart serwera; `[add TattooRArm`, założyć.
-8. Klient: skopiuj do kopii klienta `ClassicUO.exe`, `ClassicUO.Assets.dll`, `ClassicUO.IO.dll`, `ClassicUO.Renderer.dll`, `ClassicUO.Utility.dll` z `D:\UO\ClassicUO-build`.
+8. Klient: skopiuj do kopii klienta `ClassicUO.exe`, `ClassicUO.Assets.dll`, `ClassicUO.IO.dll`, `ClassicUO.Renderer.dll`, `ClassicUO.Utility.dll` z folderu, do którego zbudowałeś klienta (patrz README).
+
+## Budowanie
+
+Wymagane: .NET SDK (u nas 8/9/10), podmoduły FNA i MP3Sharp. Jeśli `git://` jest zablokowane, pobierz zagnieżdżone podmoduły FNA przez https:
+
+```bash
+git submodule update --init external/MP3Sharp
+git -C external/FNA -c url."https://github.com/".insteadOf=git://github.com/ submodule update --init --recursive
+dotnet build src/ClassicUO.Client/ClassicUO.Client.csproj -c Release -o build-out
+```
+
+Uruchomienie z danymi klienta UO (PowerShell):
+
+```powershell
+.\build-out\ClassicUO.exe -uopath "C:\sciezka\do\klienta" -clientversion 7.0.95.0 -ip 127.0.0.1 -port 2593
+```
+
+Do działającego klienta kopiuj tylko `ClassicUO.exe` i `ClassicUO.{Assets,IO,Renderer,Utility}.dll`.
+
+## Merge do własnego klienta (np. innego forka 1.x)
+
+Zmiany to 6 commitów na `b13d3fe82` (gałąź `decor-layers`). Najprościej:
+
+```bash
+git remote add decor https://github.com/Maupishon/classicuo-decor-layers.git
+git fetch decor
+git merge decor/decor-layers        # albo: git cherry-pick b13d3fe82..decor/decor-layers
+```
+
+Miejsca, w których mogą być konflikty (to jedyne pliki kodu, które ruszamy):
+- `src/ClassicUO.Client/Game/Data/Layers.cs`: wartości enuma 0x20-0x27 na końcu.
+- `src/ClassicUO.Client/Game/Constants.cs`: `USED_LAYER_COUNT` (31) i `BAD_CONTAINER_LAYERS` (dopisane wpisy do indeksu 0x27).
+- `src/ClassicUO.Client/Game/Data/LayerOrder.cs`: w każdym z 8 wierszy tatuaże przed `Shirt` (w wierszu 3 po `Cloak`), `Belt2` po `Waist`, `Head2` po `Helmet`.
+- `src/ClassicUO.Client/Game/UI/Controls/PaperDollInteractable.cs`: te same wpisy w `_layerOrder` i `_layerOrder_quiver_fix`.
+- `src/ClassicUO.Client/Network/PacketHandlers.cs`: warunek odświeżenia paperdolla w `EquipItem` (`Layer.Mount` lub `>= Layer.TattooRArm`).
+
+Jeśli Twój klient ma własne layery, po scaleniu sprawdź, że `USED_LAYER_COUNT` = liczba pozycji w każdym wierszu `LayerOrder` i obu tablicach paperdolla, a każdy nowy layer jest w `BAD_CONTAINER_LAYERS`.
+
+## Ograniczenia klienta 1.x (sprawdzone w kodzie)
+- Animacja ekwipunku jest rysowana tylko dla `AnimID` (z tiledata) mniejszego niż **2048**: `MobileView.DrawInternal` odrzuca `id >= Animations.MaxAnimationCount`, a ta tablica startuje z 2048 i rośnie dopiero wewnątrz `GetAnimationFrames`, czyli za późno. Dotyczy też zwłok i wierzchowców. Zdjęcie limitu to powiększenie `_dataIndex` w `ClassicUO.Renderer/Animations/Animation.cs` (nie zrobione w tym repo).
+- Rysowane są tylko layery z `LayerOrder.UsedLayers`; layer spoza listy zostaje przyjęty z pakietu, ale jest niewidoczny.
+- Jeden przedmiot na layer (`Entity.FindItemByLayer`).
+- Nowe layery nie są klikalne w świecie (pixel-check w `MobileView` kończy się na `Layer.Mount`).
 
 ### Co sprawdzić w grze
 - Pod koszulą: załóż Shirt i tatuaż; tatuaż ma być widoczny tylko tam, gdzie koszula go nie zakrywa.
